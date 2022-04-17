@@ -56,6 +56,24 @@ _start:
 	jmp main
 
 ; =================================
+; PROCEDURES
+; return ; name             ; rdi  ;  rsi  ; rdx
+; ------ ; ---------------- ; ---- ; ----- ;
+;        ; print_num        ; num  ;       ;
+;        ; heap_init        ;      ;       ;
+; ptr    ; allocate         ; size ;       ;
+;        ; free             ; ptr  ;       ;
+;        ; memcpy           ; src  ; dest  ; size
+; ptr    ; getline          ; fd   ;       ;
+; ptr    ; dla_create       ; size
+;        ; dla_destroy      ; ptr 
+; ptr    ; dla_get_elem     ; ptr  ; index ;
+; int    ; dla_get_elem_val ; ptr  ; index ;
+; ptr    ; dla_add_elem     ; ptr  ; elem  ; 
+; ptr    ; dla_rem_elem     ; ptr  ; index ;
+; int    ; STOI             ; ptr  ;       ;
+
+; =================================
 
 ; takes number to print in rdi
 print_num:
@@ -383,7 +401,7 @@ gl_not_found:
 
 ; =================================
 ; returns pointer to dla
-; takes size in bytes in rdi
+; takes size in elements in rdi
 ; structure of dla is 
 ;	ptr-0x4   ptr
 ;	size      data
